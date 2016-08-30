@@ -1,0 +1,58 @@
+﻿@model MvcTutorial.Models.Review
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Reviews</h4>
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="AlbumID">AlbumID</label>
+            <div class="col-md-10">
+                <select class="form-control" id="AlbumID" name="AlbumID"><option value="1">Test</option>
+<option value="2">Christopher Sings!</option>
+</select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="AlbumID" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Contents">Contents</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Contents" name="Contents" value="" type="text">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Contents" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ReviewerEmail">Email Address</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-required="The Email Address field is required." id="ReviewerEmail" name="ReviewerEmail" value="" type="email">
+                <span class="field-validation-valid text-danger" data-valmsg-for="ReviewerEmail" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input value="Create" class="btn btn-default" type="submit">
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
